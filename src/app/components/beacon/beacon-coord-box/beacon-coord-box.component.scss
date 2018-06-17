@@ -1,0 +1,17 @@
+.box {
+  color: #fff;
+  width: 220px;
+  text-align: center;
+  margin: 10px 20px 10px 0;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.box > div:first-child {
+  padding: 15px;
+  font-size: 25px;
+}
+
+.box > div:last-child {
+  padding: 8px;
+}

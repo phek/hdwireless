@@ -1,0 +1,11 @@
+@import "../../shared/navbar/navbar.variables";
+@import "../../shared/bottombar/bottombar.variables";
+@import "beacon-sidemenu.variables";
+
+#side_panel {
+  width: $beacon-sidemenu-width;
+  position: fixed;
+  right: 0;
+  background-color: #fff;
+  height: calc(100% - #{$navbar-height + $navbar-border-width + $bottombar-height});
+}

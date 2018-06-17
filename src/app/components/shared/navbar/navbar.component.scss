@@ -1,0 +1,76 @@
+@import "../../../../sass/variables";
+@import "navbar.variables";
+
+nav {
+  background-color: $navbar-bg;
+  border-bottom: $navbar-border-width solid $primary;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: $navbar-height;
+  display: flex;
+  align-items: center;
+}
+
+.nav-box {
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-toggler-icon {
+  width: 30px;
+  margin-left: 20px;
+}
+
+.navbar-toggler-icon div {
+  width: 100%;
+  height: 4px;
+  margin: 5px 0;
+  background-color: $body-color;
+  border-radius: 10px;
+}
+
+.navbar-brand {
+  margin-right: 25px;
+}
+
+.nav-item .nav-link {
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+
+.nav-item.active .nav-link {
+  border-bottom: 2px solid $primary;
+  color: $primary;
+}
+
+.navbar-items, .navbar-right {
+  display: flex;
+  line-height: normal;
+}
+
+.navbar-right {
+  margin-left: auto;
+}
+
+.user-button {
+  display: flex;
+  margin-left: 50px;
+  align-items: center;
+}
+
+.user-pic {
+  padding: 15px;
+  border-radius: 100%;
+  background-color: $grey;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+a, a:hover, a:visited, a:active {
+  text-decoration: none;
+}

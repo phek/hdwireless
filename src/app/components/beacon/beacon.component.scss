@@ -1,0 +1,42 @@
+@import "../shared/navbar/navbar.variables";
+@import "../shared/bottombar/bottombar.variables";
+@import "beacon-sidemenu/beacon-sidemenu.variables";
+
+#container {
+  display: flex;
+}
+
+#content-wrapper {
+  width: calc(100% - #{$beacon-sidemenu-width} - 2px);
+  height: calc(100% - #{$navbar-height + $navbar-border-width + $bottombar-height});
+  position: fixed;
+}
+
+.content {
+  padding: 25px;
+}
+
+.padding-box {
+  padding: 0 35px;
+}
+
+.pos-icon {
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.pos-icon img {
+  height: 100%;
+}
+
+.pos-icon span {
+  height: 100%;
+  width: 1px;
+  margin: 0 10px;
+  background-color: #999;
+}
+
+.coord-box {
+  margin-top: 30px;
+}

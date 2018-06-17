@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+// Theme
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "sass/variables";
+@import "sass/reset";
+@import "sass/main";

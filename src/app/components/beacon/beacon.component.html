@@ -1,0 +1,30 @@
+<div id="container">
+  <div id="content-wrapper">
+    <ng-scrollbar>
+      <div class="content">
+        <div class="pos-icon">
+          <img src="/assets/icons/globe.png">
+          <span></span>
+          <div>Position</div>
+        </div>
+        <div class="padding-box">
+          <div class="coord-box">
+            <app-beacon-coord-box
+              [settings]="{text: 'Latitude', color1: '#56ab80', color2: '#4d926f'}"
+              [coordinate]="coordinate.latitude"></app-beacon-coord-box>
+            <app-beacon-coord-box
+              [settings]="{text: 'Longitude', color1: '#7aa0d0', color2: '#4d5d91'}"
+              [coordinate]="coordinate.longitude"></app-beacon-coord-box>
+          </div>
+          <app-beacon-frame-table
+            [title]="'Beacon Framed with Unique Boxes'"
+            [dataSource]="uniqueTableDataSource"></app-beacon-frame-table>
+          <app-beacon-frame-table
+            [title]="'All Beacon Frames'"
+            [dataSource]="allTableDataSource"></app-beacon-frame-table>
+        </div>
+      </div>
+    </ng-scrollbar>
+  </div>
+  <app-beacon-sidemenu></app-beacon-sidemenu>
+</div>

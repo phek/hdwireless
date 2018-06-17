@@ -1,0 +1,26 @@
+<nav>
+  <div class="nav-box">
+    <a class="navbar-brand" [routerLink]="['/']" (click)="navbarCollapsed = true">
+      <img src="{{menu.logo1}}" height="30" alt="Logo">
+    </a>
+    <div class="navbar-items" *ngIf="navbarCollapsed">
+      <div class="nav-item" [routerLinkActive]="['active']" *ngFor="let item of menu.items">
+        <a class="nav-link" [routerLink]="[item.route]" (click)="navbarCollapsed = true">{{item.text}}</a>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <a [routerLink]="['/']">
+        <img src="{{menu.logo2}}" height="30" alt="Logo2">
+      </a>
+      <div class="nav-item user-button">
+        <div>{{username ? username : 'Login'}}</div>
+        <div class="user-pic"></div>
+      </div>
+    </div>
+    <div class="navbar-toggler-icon">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</nav>

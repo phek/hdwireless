@@ -1,0 +1,25 @@
+.table {
+  margin-top: 50px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  background-color: #d6d0c0;
+  font-size: 14px;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  vertical-align: middle;
+}
+
+td.mat-cell {
+  font-size: 0.9em;
+}
+
+h1 {
+  margin: 10px;
+  font-size: 1.1em;
+}
