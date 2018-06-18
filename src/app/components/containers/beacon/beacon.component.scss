@@ -2,6 +2,11 @@
 @import "../shared/bottombar/bottombar.variables";
 @import "beacon-sidemenu/beacon-sidemenu.variables";
 
+h1 {
+  margin: 10px;
+  font-size: 1.1em;
+}
+
 #container {
   display: flex;
 }

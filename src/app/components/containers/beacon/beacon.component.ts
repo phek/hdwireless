@@ -16,23 +16,28 @@ export class BeaconComponent implements OnInit {
   headers = [
     {
       name: 'Beacon ID',
-      key: 'Beacon'
+      key: 'Beacon',
+      type: 'string'
     },
     {
       name: 'Box',
-      key: 'Box'
+      key: 'Box',
+      type: 'string'
     },
     {
       name: 'Tx Power',
-      key: 'TxPower'
+      key: 'TxPower',
+      type: 'number'
     },
     {
       name: 'Count',
-      key: 'Count'
+      key: 'Count',
+      type: 'number'
     },
     {
       name: 'RSSI',
-      key: 'Rssi'
+      key: 'Rssi',
+      type: 'number'
     }
   ];
 

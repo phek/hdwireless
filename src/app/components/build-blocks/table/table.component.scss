@@ -1,25 +1,29 @@
-.table {
-  margin-top: 50px;
-}
-
 table {
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
 }
 
-.mat-header-cell {
+.headers td {
   background-color: #d6d0c0;
-  font-size: 14px;
+  border-bottom: 2px solid #b5b5b5;
+  border-right: 1px solid #a29a84;
 }
 
-td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
-  vertical-align: middle;
+.headers td:last-child {
+  border-right: none;
 }
 
-td.mat-cell {
+td.short {
+  width: 100px;
+  text-align: center;
+}
+
+.data td {
+  background-color: #fff;
   font-size: 0.9em;
 }
 
-h1 {
-  margin: 10px;
-  font-size: 1.1em;
+td {
+  padding: 10px 20px;
 }

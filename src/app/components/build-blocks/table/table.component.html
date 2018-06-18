@@ -1,10 +1,10 @@
 <div class="table">
   <table>
-    <tr>
-      <td *ngFor="let column of headers">{{column.name}}</td>
+    <tr class="headers">
+      <td *ngFor="let column of headers" ngClass="{{column.type === 'number' ? 'short' : ''}}">{{column.name}}</td>
     </tr>
-    <tr *ngFor="let row of data">
-      <td *ngFor="let column of headers">{{row[column.key]}}</td>
+    <tr *ngFor="let row of data" class="data">
+      <td *ngFor="let column of headers" ngClass="{{column.type === 'number' ? 'short' : ''}}">{{row[column.key]}}</td>
     </tr>
   </table>
 </div>
