@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Coordinate} from './Coordinate';
 import {BeaconFrameElement} from './BeaconFrameElement';
 import {BeaconService} from '../../../services/api/beacon/beacon.service';
 import {AuthenticationService} from '../../../services/auth/auth.service';
+import {TableComponent} from '../../build-blocks/table/table.component';
 
 @Component({
   selector: 'app-beacon',
@@ -11,9 +12,15 @@ import {AuthenticationService} from '../../../services/auth/auth.service';
 })
 export class BeaconComponent implements OnInit {
 
+  @ViewChild('uniqueTable') uniqueTable: TableComponent;
+  @ViewChild('allTable') allTable: TableComponent;
+
   loggedIn = false;
   beaconID = '12000000000256d9';
   coordinate: Coordinate = new Coordinate();
+
+  uniqueTableData: BeaconFrameElement[] = [];
+  allTableData: BeaconFrameElement[] = [];
 
   headers = [
     {
@@ -43,9 +50,6 @@ export class BeaconComponent implements OnInit {
     }
   ];
 
-  uniqueTableData: BeaconFrameElement[] = [];
-  allTableData: BeaconFrameElement[] = [];
-
   constructor(private beaconApi: BeaconService, private auth: AuthenticationService) {
   }
 
@@ -67,7 +71,7 @@ export class BeaconComponent implements OnInit {
 
   /**
    * Filters out unique boxes (chooses the highest RSSI from each box).
-   * @param data {BeaconFrameElement[]} The BeaconFrame data.
+   * @param data {BeaconFrameElement[]} The BeaconFrame list.
    * @returns {BeaconFrameElement[]} A filtered BeaconFrame list.
    */
   filterUniqueBoxes(data) {

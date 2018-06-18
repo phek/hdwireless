@@ -18,10 +18,14 @@
                 [settings]="{text: 'Longitude', color1: '#7aa0d0', color2: '#4d5d91'}"
                 [coordinate]="coordinate.longitude"></app-beacon-coord-box>
             </div>
-            <h1>Beacon Framed with Unique Boxes</h1>
-            <app-table [headers]="headers" [data]="uniqueTableData"></app-table>
-            <h1>All Beacon Frames</h1>
-            <app-table [headers]="headers" [data]="allTableData"></app-table>
+            <div class="table-container">
+              <h1>Beacon Framed with Unique Boxes</h1>
+              <app-table #uniqueTable [headers]="headers" [data]="uniqueTableData" [initSort]="4"></app-table>
+            </div>
+            <div class="table-container">
+              <h1>All Beacon Frames</h1>
+              <app-table #allTable [headers]="headers" [data]="allTableData" [initSort]="4"></app-table>
+            </div>
           </div>
         </div>
       </div>

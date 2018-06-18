@@ -8,6 +8,32 @@ table {
   background-color: #d6d0c0;
   border-bottom: 2px solid #b5b5b5;
   border-right: 1px solid #a29a84;
+  cursor: pointer;
+  user-select: none;
+}
+
+.headers td.active.up::after {
+  content: "";
+  width: 0;
+  margin-left: 5px;
+  height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #333;
+}
+
+.headers td.active.down::after {
+  content: "";
+  width: 0;
+  margin-left: 5px;
+  height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
 }
 
 .headers td:last-child {

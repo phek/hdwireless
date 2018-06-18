@@ -1,7 +1,11 @@
 <div class="table">
   <table>
     <tr class="headers">
-      <td *ngFor="let column of headers" ngClass="{{column.type === 'number' ? 'short' : ''}}">{{column.name}}</td>
+      <td *ngFor="let column of headers; let curIndex = index;"
+          ngClass="{{column.type === 'number' ? 'short' : ''}} {{curIndex === lastSorted ? 'active' : ''}} {{asc ? ' up' : 'down'}}"
+          (click)="sort(curIndex)">
+        {{column.name}}
+      </td>
     </tr>
     <tr *ngFor="let row of data" class="data">
       <td *ngFor="let column of headers" ngClass="{{column.type === 'number' ? 'short' : ''}}">{{row[column.key]}}</td>
