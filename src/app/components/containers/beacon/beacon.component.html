@@ -16,12 +16,10 @@
               [settings]="{text: 'Longitude', color1: '#7aa0d0', color2: '#4d5d91'}"
               [coordinate]="coordinate.longitude"></app-beacon-coord-box>
           </div>
-          <app-beacon-frame-table
-            [title]="'Beacon Framed with Unique Boxes'"
-            [dataSource]="uniqueTableDataSource"></app-beacon-frame-table>
-          <app-beacon-frame-table
-            [title]="'All Beacon Frames'"
-            [dataSource]="allTableDataSource"></app-beacon-frame-table>
+          <h1>Beacon Framed with Unique Boxes</h1>
+          <app-table [headers]="headers" [data]="uniqueTableData"></app-table>
+          <h1>All Beacon Frames</h1>
+          <app-table [headers]="headers" [data]="allTableData"></app-table>
         </div>
       </div>
     </ng-scrollbar>

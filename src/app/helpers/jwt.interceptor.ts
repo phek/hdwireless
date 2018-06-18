@@ -5,7 +5,6 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log(request);
     const currentUser: AuthResponse = JSON.parse(localStorage.getItem('currentUser'));
     if (currentUser && currentUser.AuthenticateToken) {
       request = request.clone({
@@ -20,7 +19,6 @@ export class JwtInterceptor implements HttpInterceptor {
         }
       });
     }
-
     return next.handle(request);
   }
 }
