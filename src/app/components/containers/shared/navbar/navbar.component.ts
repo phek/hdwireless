@@ -1,4 +1,3 @@
-///<reference path="../../../../../../node_modules/@angular/core/src/metadata/directives.d.ts"/>
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../../../services/auth/auth.service';
 
@@ -10,12 +9,13 @@ import {AuthenticationService} from '../../../../services/auth/auth.service';
 export class NavbarComponent implements OnInit {
 
   username: string;
+  loggedIn = false;
 
   navbarCollapsed = true;
 
   menu: Menu = {
-    logo1: '/assets/images/logo.png',
-    logo2: '/assets/images/logo2.png',
+    logo1: 'assets/images/logo.png',
+    logo2: 'assets/images/logo2.png',
     items: [
       {
         text: 'Menu Item',
@@ -36,14 +36,22 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    const cookie: AuthResponse = JSON.parse(localStorage.getItem('currentUser'));
-    if (!cookie) {
-      this.auth.login('assess@hd-wireless.com', 'assess1234').subscribe(data => {
-        this.username = data.Id;
-      });
-    } else {
-      this.username = cookie.Id;
+    if (this.auth.isLoggedIn()) {
+      this.loggedIn = true;
+      this.username = this.auth.getCurrentUser();
     }
+  }
+
+  login() {
+    this.auth.login('assess@hd-wireless.com', 'assess1234').subscribe(data => {
+      this.username = data.Id;
+      window.location.reload(); // TEMPORARY
+    });
+  }
+
+  logout() {
+    this.auth.logout();
+    window.location.reload(); // TEMPORARY
   }
 
 }
