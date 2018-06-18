@@ -12,12 +12,6 @@ export class JwtInterceptor implements HttpInterceptor {
           'X-Authenticate-Token': currentUser.AuthenticateToken
         }
       });
-    } else {
-      request = request.clone({
-        setHeaders: {
-          'X-Authenticate-Token': 'none'
-        }
-      });
     }
     return next.handle(request);
   }

@@ -26,4 +26,14 @@ export class AuthenticationService {
   logout() {
     localStorage.removeItem('currentUser');
   }
+
+  isLoggedIn() {
+    const cookie: AuthResponse = JSON.parse(localStorage.getItem('currentUser'));
+    return !!cookie;
+  }
+
+  getCurrentUser() {
+    const cookie: AuthResponse = JSON.parse(localStorage.getItem('currentUser'));
+    return cookie.Id;
+  }
 }

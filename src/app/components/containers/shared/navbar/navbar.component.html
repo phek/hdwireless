@@ -13,7 +13,8 @@
         <img src="{{menu.logo2}}" height="30" alt="Logo2">
       </a>
       <div class="nav-item user-button">
-        <div>{{username ? username : 'Login'}}</div>
+        <div class="login-button" *ngIf="loggedIn" (click)="logout()">{{username}}</div>
+        <div class="login-button" *ngIf="!loggedIn" (click)="login()">Login</div>
         <div class="user-pic"></div>
       </div>
     </div>

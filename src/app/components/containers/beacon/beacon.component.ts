@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Coordinate} from './Coordinate';
 import {BeaconFrameElement} from './BeaconFrameElement';
 import {BeaconService} from '../../../services/api/beacon/beacon.service';
+import {AuthenticationService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-beacon',
@@ -10,6 +11,7 @@ import {BeaconService} from '../../../services/api/beacon/beacon.service';
 })
 export class BeaconComponent implements OnInit {
 
+  loggedIn = false;
   beaconID = '12000000000256d9';
   coordinate: Coordinate = new Coordinate();
 
@@ -44,19 +46,23 @@ export class BeaconComponent implements OnInit {
   uniqueTableData: BeaconFrameElement[] = [];
   allTableData: BeaconFrameElement[] = [];
 
-  constructor(private beaconApi: BeaconService) {
+  constructor(private beaconApi: BeaconService, private auth: AuthenticationService) {
   }
 
   ngOnInit() {
-    this.beaconApi.getBeaconPosition(this.beaconID).subscribe(data => {
-      this.coordinate.longitude = data.Longitude;
-      this.coordinate.latitude = data.Latitude;
-    });
+    if (this.auth.isLoggedIn()) {
+      this.loggedIn = true;
 
-    this.beaconApi.getBeaconFrames(this.beaconID).subscribe(data => {
-      this.allTableData = data;
-      this.uniqueTableData = this.filterUniqueBoxes(data);
-    });
+      this.beaconApi.getBeaconPosition(this.beaconID).subscribe(data => {
+        this.coordinate.longitude = data.Longitude;
+        this.coordinate.latitude = data.Latitude;
+      });
+
+      this.beaconApi.getBeaconFrames(this.beaconID).subscribe(data => {
+        this.allTableData = data;
+        this.uniqueTableData = this.filterUniqueBoxes(data);
+      });
+    }
   }
 
   /**
@@ -76,16 +82,5 @@ export class BeaconComponent implements OnInit {
       filteredArray.push(hashArray[key]);
     }
     return filteredArray;
-  }
-
-  /**
-   * Updates the table.
-   * @param data The new data.
-   * @param array The array used for the table.
-   * @param dataSubject The BehaviorSubject used for the table.
-   */
-  updateTable(data, array, dataSubject) {
-    array = data;
-    dataSubject.next(array);
   }
 }
