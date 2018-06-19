@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 
 import {API} from '../../settings/api';
-import {handleError} from '../../helpers/ErrorHandler';
+import {handleError} from '../../helpers/error.handler';
 import {BeaconFrameElement} from '../../models/beacon/BeaconFrameElement';
 import {Coordinate} from '../../models/beacon/Coordinate';
 

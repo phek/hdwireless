@@ -1,7 +1,7 @@
 // Core Modules
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 // Other Modules
@@ -32,7 +32,6 @@ const coreModules = [
   RouterModule.forRoot(ROUTES),
   HttpClientModule,
 ];
-
 const otherModules = [
   ScrollbarModule
 ];

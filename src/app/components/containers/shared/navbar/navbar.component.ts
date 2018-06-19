@@ -45,13 +45,11 @@ export class NavbarComponent implements OnInit {
   login() {
     this.auth.login('assess@hd-wireless.com', 'assess1234').subscribe(data => {
       this.username = data.Id;
-      window.location.reload(); // TEMPORARY
     });
   }
 
   logout() {
     this.auth.logout();
-    window.location.reload(); // TEMPORARY
   }
 
 }

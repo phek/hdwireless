@@ -15,26 +15,39 @@ export class TableComponent implements OnChanges {
   asc = false;
   lastSorted = -1;
 
+  /**
+   * Automatically sorts the table if data is updated. Only occurs if an initial sort index is provided.
+   */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.data && !changes.data.firstChange && this.initSort) {
       this.sort(this.initSort);
     }
   }
 
+  /**
+   * Sorts the table.
+   * @param headerIndex The column index to sort after.
+   */
   sort(headerIndex) {
     if (this.lastSorted === headerIndex) {
       this.asc = !this.asc;
     }
-    const sortAlgorithm = this.headers[headerIndex].type === 'string'
+    const sortCompareAlgorithm = this.headers[headerIndex].type === 'string'
       ? compareString(this.headers[headerIndex].key, this.asc)
       : compareInt(this.headers[headerIndex].key, this.asc);
-    this.data.sort(sortAlgorithm);
+    this.data.sort(sortCompareAlgorithm);
     this.lastSorted = headerIndex;
   }
 }
 
+/**
+ * Creates a compare function bound with the header-key (For headers of type string).
+ * @param key The header key to bind.
+ * @param asc Sort asc?
+ * @returns {(a, b) => (number | number)} A compare function for the specified header.
+ */
 function compareString(key, asc) {
-  return (a, b) => {
+  return (a: string, b: string) => {
     const text1 = asc ? a[key].toUpperCase() : b[key].toUpperCase();
     const text2 = asc ? b[key].toUpperCase() : a[key].toUpperCase();
     if (text1 < text2) {
@@ -47,6 +60,12 @@ function compareString(key, asc) {
   };
 }
 
+/**
+ * Creates a compare function bound with the header-key (For headers of type number).
+ * @param key The header key to bind.
+ * @param asc Sort asc?
+ * @returns {(a, b) => (number | number)} A compare function for the specified header.
+ */
 function compareInt(key, asc) {
   return (a, b) => {
     const int1 = asc ? a : b;

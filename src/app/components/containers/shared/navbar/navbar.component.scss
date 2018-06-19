@@ -1,4 +1,5 @@
 @import "../../../../../sass/variables";
+@import "../bottombar/bottombar.variables";
 @import "navbar.variables";
 
 nav {
@@ -25,6 +26,7 @@ nav {
   width: 30px;
   margin-left: 20px;
   display: none;
+  cursor: pointer;
 }
 
 .navbar-toggler-icon div {
@@ -40,6 +42,7 @@ nav {
 }
 
 .nav-item .nav-link {
+  border-bottom: 2px solid transparent;
   text-transform: uppercase;
   padding: 10px 15px;
 }
@@ -47,6 +50,11 @@ nav {
 .nav-item.active .nav-link {
   border-bottom: 2px solid $primary;
   color: $primary;
+}
+
+.navbar-items {
+  overflow: hidden;
+  transition: left 1s;
 }
 
 .navbar-items, .navbar-right {
@@ -86,11 +94,35 @@ a, a:hover, a:visited, a:active {
     display: block;
   }
 
-  .navbar-items, .right-logo {
+  .right-logo {
     display: none;
   }
 
   .user-button {
     margin-left: 0;
+  }
+
+  .navbar-items {
+    position: absolute;
+    background-color: $navbar-bg;
+    top: $navbar-height + $navbar-border-width;
+    height: calc(100vh - #{$navbar-height + $navbar-border-width} - #{$bottombar-height});
+    width: $navbar-responsive-width;
+    left: 0;
+    flex-direction: column;
+    border-right: $navbar-border-width solid $primary;
+  }
+
+  .navbar-items .nav-item {
+    width: 100%;
+    min-width: 200px;
+  }
+
+  .navbar-items .nav-link {
+    display: block;
+  }
+
+  .navbar-items.hide {
+    left: -$navbar-responsive-width - $navbar-border-width;
   }
 }

@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 
 import {API} from '../../settings/api';
-import {handleError} from '../../helpers/ErrorHandler';
+import {handleError} from '../../helpers/error.handler';
 
 @Injectable()
 export class AuthenticationService {
@@ -12,11 +12,11 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(API + '/login', {Id: username, Password: password})
+    return this.http.post<any>(`${API}/login`, {Id: username, Password: password})
       .pipe(map((user: AuthResponse) => {
-          console.log(user);
           if (user && user.AuthenticateToken) {
             localStorage.setItem('currentUser', JSON.stringify(user));
+            window.location.reload(); // should use redux i.e. for updating state instead.
           }
           return user;
         }),
@@ -25,6 +25,7 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    window.location.reload(); // should use redux i.e. for updating state instead.
   }
 
   isLoggedIn() {

@@ -14,8 +14,8 @@ export class BeaconComponent implements OnInit {
   menuOpen = true;
   loggedIn = false;
   beaconID = '12000000000256d9';
-  coordinate: Coordinate = new Coordinate();
 
+  coordinate: Coordinate = new Coordinate();
   uniqueTableData: BeaconFrameElement[] = [];
   allTableData: BeaconFrameElement[] = [];
 
@@ -51,9 +51,14 @@ export class BeaconComponent implements OnInit {
     this.onResize();
   }
 
+  /**
+   * Automatically closes menu on lower screen sizes.
+   */
   @HostListener('window:resize')
   onResize() {
-    this.menuOpen = window.innerWidth >= 1024;
+    if (window.innerWidth < 1024) {
+      this.menuOpen = false;
+    }
   }
 
   ngOnInit() {
@@ -84,6 +89,8 @@ export class BeaconComponent implements OnInit {
         hashArray[item.Box] = item;
       }
     });
+
+    // Convert hash array to normal array
     const filteredArray: BeaconFrameElement[] = [];
     for (const key in hashArray) {
       filteredArray.push(hashArray[key]);

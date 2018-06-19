@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {CoordBoxSettings} from './CoordBoxSettings';
+import {CoordBoxSettings} from '../../../../models/beacon/CoordBoxSettings';
 
 @Component({
   selector: 'app-beacon-coord-box',
