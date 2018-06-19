@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../../../services/auth/auth.service';
+import {MENU} from './menu';
 
 @Component({
   selector: 'app-navbar',
@@ -13,24 +14,7 @@ export class NavbarComponent implements OnInit {
 
   navbarCollapsed = true;
 
-  menu: Menu = {
-    logo1: 'assets/images/logo.png',
-    logo2: 'assets/images/logo2.png',
-    items: [
-      {
-        text: 'Menu Item',
-        route: '/item1'
-      },
-      {
-        text: 'Menu Item 2',
-        route: '/item2'
-      },
-      {
-        text: 'Menu Item 3',
-        route: '/item3'
-      }
-    ]
-  };
+  menu: Menu = MENU;
 
   constructor(private auth: AuthenticationService) {
   }
