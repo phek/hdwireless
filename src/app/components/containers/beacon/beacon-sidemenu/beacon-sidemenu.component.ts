@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-beacon-sidemenu',
   templateUrl: './beacon-sidemenu.component.html',
   styleUrls: ['./beacon-sidemenu.component.scss']
 })
-export class BeaconSidemenuComponent implements OnInit {
+export class BeaconSidemenuComponent {
+  @Input() open = true;
+  @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() { }
-
-  ngOnInit() {
+  toggleMenu() {
+    this.open = !this.open;
+    this.openChange.emit(this.open);
   }
-
 }

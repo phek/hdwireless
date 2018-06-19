@@ -1,3 +1,7 @@
+.table {
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: separate;
@@ -12,28 +16,23 @@ table {
   user-select: none;
 }
 
-.headers td.active.up::after {
+.headers td.active::after {
   content: "";
-  width: 0;
-  margin-left: 5px;
-  height: 0;
+  border: solid #333;
+  border-width: 0 2px 2px 0;
   display: inline-block;
-  vertical-align: middle;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #333;
+  padding: 2px;
+  margin-left: 5px;
+}
+
+.headers td.active.up::after {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 
 .headers td.active.down::after {
-  content: "";
-  width: 0;
-  margin-left: 5px;
-  height: 0;
-  display: inline-block;
-  vertical-align: middle;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #333;
+  transform: translateY(-3px) rotate(45deg);
+  -webkit-transform: translateY(-3px) rotate(45deg);
 }
 
 .headers td:last-child {

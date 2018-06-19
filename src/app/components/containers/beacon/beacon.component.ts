@@ -1,9 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {Coordinate} from './Coordinate';
 import {BeaconFrameElement} from './BeaconFrameElement';
 import {BeaconService} from '../../../services/api/beacon/beacon.service';
 import {AuthenticationService} from '../../../services/auth/auth.service';
-import {TableComponent} from '../../build-blocks/table/table.component';
 
 @Component({
   selector: 'app-beacon',
@@ -12,9 +11,7 @@ import {TableComponent} from '../../build-blocks/table/table.component';
 })
 export class BeaconComponent implements OnInit {
 
-  @ViewChild('uniqueTable') uniqueTable: TableComponent;
-  @ViewChild('allTable') allTable: TableComponent;
-
+  menuOpen = true;
   loggedIn = false;
   beaconID = '12000000000256d9';
   coordinate: Coordinate = new Coordinate();
@@ -51,6 +48,12 @@ export class BeaconComponent implements OnInit {
   ];
 
   constructor(private beaconApi: BeaconService, private auth: AuthenticationService) {
+    this.onResize();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.menuOpen = window.innerWidth >= 1000;
   }
 
   ngOnInit() {

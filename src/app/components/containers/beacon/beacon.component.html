@@ -1,5 +1,5 @@
 <div id="container">
-  <div id="content-wrapper">
+  <div id="content-wrapper" ngClass="{{menuOpen ? '' : 'no-menu'}}">
     <ng-scrollbar>
       <div class="content">
         <div *ngIf="!loggedIn">Please login to view data.</div>
@@ -31,5 +31,5 @@
       </div>
     </ng-scrollbar>
   </div>
-  <app-beacon-sidemenu></app-beacon-sidemenu>
+  <app-beacon-sidemenu [(open)]="menuOpen"></app-beacon-sidemenu>
 </div>

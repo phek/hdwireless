@@ -2,10 +2,43 @@
 @import "../../shared/bottombar/bottombar.variables";
 @import "beacon-sidemenu.variables";
 
+// Local variables
+$arrow-width: 20px;
+
 #side_panel {
   width: $beacon-sidemenu-width;
   position: fixed;
   right: 0;
   background-color: #fff;
   height: calc(100% - #{$navbar-height + $navbar-border-width + $bottombar-height});
+  transition: 1s;
+}
+
+#side_panel_content {
+  padding-left: $arrow-width;
+}
+
+#side_panel.closed {
+  width: $arrow-width;
+}
+
+#side_panel_toggle {
+  position: absolute;
+  height: 100%;
+  width: $arrow-width;
+}
+
+#side_panel_toggle i.arrow {
+  border: solid #333;
+  border-width: 0 3px 3px 0;
+  padding: 6px;
+  top: 50%;
+  position: absolute;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+#side_panel.closed #side_panel_toggle i.arrow {
+  transform: translate(6px, 1px) rotate(135deg);
+  -webkit-transform: translate(6px, 1px) rotate(135deg);
 }

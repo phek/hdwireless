@@ -8,7 +8,8 @@
       </td>
     </tr>
     <tr *ngFor="let row of data" class="data">
-      <td *ngFor="let column of headers" ngClass="{{column.type === 'number' ? 'short' : ''}}">{{row[column.key]}}</td>
+      <td *ngFor="let column of headers" ngClass="{{column.type === 'number' ? 'short' : ''}}">{{row[column.key]}}
+      </td>
     </tr>
   </table>
 </div>

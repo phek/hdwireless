@@ -1,3 +1,4 @@
-<div id="side_panel">
-  Test
+<div id="side_panel" ngClass="{{open ? '' : 'closed'}}">
+  <div id="side_panel_content"></div>
+  <div id="side_panel_toggle" (click)="toggleMenu()"><i class="arrow"></i></div>
 </div>

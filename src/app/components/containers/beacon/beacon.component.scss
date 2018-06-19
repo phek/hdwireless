@@ -15,6 +15,11 @@ h1 {
   width: calc(100% - #{$beacon-sidemenu-width} - 2px);
   height: calc(100% - #{$navbar-height + $navbar-border-width + $bottombar-height});
   position: fixed;
+  transition: 1s;
+}
+
+#content-wrapper.no-menu {
+  width: 100%;
 }
 
 .content {
