@@ -53,7 +53,7 @@ export class BeaconComponent implements OnInit {
 
   @HostListener('window:resize')
   onResize() {
-    this.menuOpen = window.innerWidth >= 1000;
+    this.menuOpen = window.innerWidth >= 1024;
   }
 
   ngOnInit() {

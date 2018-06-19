@@ -24,6 +24,7 @@ nav {
 .navbar-toggler-icon {
   width: 30px;
   margin-left: 20px;
+  display: none;
 }
 
 .navbar-toggler-icon div {
@@ -61,6 +62,7 @@ nav {
   display: flex;
   margin-left: 50px;
   align-items: center;
+  text-align: right;
 }
 
 .login-button {
@@ -77,4 +79,18 @@ nav {
 
 a, a:hover, a:visited, a:active {
   text-decoration: none;
+}
+
+@media all and (max-width: $large-size) {
+  .navbar-toggler-icon {
+    display: block;
+  }
+
+  .navbar-items, .right-logo {
+    display: none;
+  }
+
+  .user-button {
+    margin-left: 0;
+  }
 }
