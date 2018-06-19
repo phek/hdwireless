@@ -21,7 +21,7 @@ import {BottombarComponent} from './components/containers/shared/bottombar/botto
 
 // Services
 import {AuthenticationService} from './services/auth/auth.service';
-import {BeaconService} from './services/api/beacon/beacon.service';
+import {BeaconService} from './api/beacon/beacon.service';
 
 // Other Imports
 import {ROUTES} from './app.routes';

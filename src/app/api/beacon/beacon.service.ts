@@ -2,8 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 
-import {API} from '../../../settings/api';
-import {handleError} from '../../../helpers/ErrorHandler';
+import {API} from '../../settings/api';
+import {handleError} from '../../helpers/ErrorHandler';
+import {BeaconFrameElement} from '../../models/beacon/BeaconFrameElement';
+import {Coordinate} from '../../models/beacon/Coordinate';
 
 const httpOptions = {
   headers: new HttpHeaders({'X-Api-Version': '3'})
@@ -15,8 +17,13 @@ export class BeaconService {
   constructor(private http: HttpClient) {
   }
 
+  /**
+   * Gets the coordinates for the specified beacon.
+   * @param {string} beaconID The beacons ID.
+   * @returns {Observable<Coordinate>}
+   */
   getBeaconPosition(beaconID: string) {
-    return this.http.get<any>(`${API}/beacons/${beaconID}/pos`, httpOptions)
+    return this.http.get<Coordinate>(`${API}/beacons/${beaconID}/pos`, httpOptions)
       .pipe(map(data => {
           return data;
         }),
@@ -28,7 +35,7 @@ export class BeaconService {
    * @param {string} beaconID The beacon ID.
    * @param {number} maxTime Only get frames received within the specified time (Type: seconds, Default: 3600).
    * @param {number} maxFrames Max amount of frames. (Default: 32)
-   * @returns {Observable<any>} TODO
+   * @returns {Observable<BeaconFrameElement[]>}
    */
   getBeaconFrames(beaconID: string, maxTime: number = 3600, maxFrames: number = 32) {
     const params = {
@@ -37,7 +44,7 @@ export class BeaconService {
         count: maxFrames
       }
     };
-    return this.http.get<any>(`${API}/beacons/${beaconID}/frames`, Object.assign(params, httpOptions))
+    return this.http.get<BeaconFrameElement[]>(`${API}/beacons/${beaconID}/frames`, Object.assign(params, httpOptions))
       .pipe(map(data => {
           return data;
         }),

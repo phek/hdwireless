@@ -1,7 +1,7 @@
 import {Component, OnInit, HostListener} from '@angular/core';
-import {Coordinate} from './Coordinate';
-import {BeaconFrameElement} from './BeaconFrameElement';
-import {BeaconService} from '../../../services/api/beacon/beacon.service';
+import {Coordinate} from '../../../models/beacon/Coordinate';
+import {BeaconFrameElement} from '../../../models/beacon/BeaconFrameElement';
+import {BeaconService} from '../../../api/beacon/beacon.service';
 import {AuthenticationService} from '../../../services/auth/auth.service';
 
 @Component({
@@ -61,8 +61,8 @@ export class BeaconComponent implements OnInit {
       this.loggedIn = true;
 
       this.beaconApi.getBeaconPosition(this.beaconID).subscribe(data => {
-        this.coordinate.longitude = data.Longitude;
-        this.coordinate.latitude = data.Latitude;
+        this.coordinate.Longitude = data.Longitude;
+        this.coordinate.Latitude = data.Latitude;
       });
 
       this.beaconApi.getBeaconFrames(this.beaconID).subscribe(data => {

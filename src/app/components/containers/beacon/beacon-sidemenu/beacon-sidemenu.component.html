@@ -1,4 +1,83 @@
 <div id="side_panel" ngClass="{{open ? '' : 'closed'}}">
-  <div id="side_panel_content"></div>
+  <div id="side_panel_content">
+    <div class="tabs">
+      <div class="tab active">Assets</div>
+      <div class="tab">Controls</div>
+      <div class="img"></div>
+    </div>
+    <div class="search-container">
+      <div class="search-title">Search stuff</div>
+      <div class="search-box">
+        <input type="text" title="Search">
+        <img src="assets/icons/find.png">
+      </div>
+    </div>
+    <div class="scroll-wrapper">
+      <ng-scrollbar>
+        <div class="tree">
+          <div class="tree-title">Headline</div>
+          <div class="item">
+            <img src="assets/icons/red_dot.png" alt="red pin">
+            <p>Red bullet pins (12)</p>
+          </div>
+          <div class="item">
+            <img src="assets/icons/green_dot.png" alt="green pin">
+            <p>Green bullet pins (19283)</p>
+          </div>
+          <div class="item">
+            <img src="assets/icons/purple_dot.png" alt="purple pin">
+            <p>Purple bullet pins (228)</p>
+          </div>
+          <div class="item">
+            <img src="assets/icons/yellow_dot.png" alt="yellow pin">
+            <p>Yellow bullet pins (999)</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="tree">
+          <div class="tree-title">Headline</div>
+          <div class="item">
+            <div class="img"></div>
+            <p>Text</p>
+            <p class="more-text">More text</p>
+          </div>
+          <div class="item">
+            <div class="img"></div>
+            <p>Text</p>
+            <p class="more-text">More text</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="details">
+          <div class="detail-title">Headline</div>
+          <div class="detail">
+            <p>Details:</p>
+            <p>text</p>
+          </div>
+          <div class="detail">
+            <p>Details:</p>
+            <p>text</p>
+          </div>
+          <div class="detail">
+            <p>Details:</p>
+            <p>text</p>
+          </div>
+          <div class="detail">
+            <p>Details:</p>
+            <p>text</p>
+          </div>
+          <br>
+          <div class="detail">
+            <p>Details:</p>
+            <p>text</p>
+          </div>
+          <div class="detail">
+            <p>Details:</p>
+            <p>text</p>
+          </div>
+        </div>
+      </ng-scrollbar>
+    </div>
+  </div>
   <div id="side_panel_toggle" (click)="toggleMenu()"><i class="arrow"></i></div>
 </div>
