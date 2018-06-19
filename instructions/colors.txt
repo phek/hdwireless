@@ -1,0 +1,30 @@
+Font: Roboto or Arial. 
+Text: #fff or #333
+ 
+Header: #fbfbfb -> #e4e4e4
+ 
+Content area bg: #e5e3df
+ 
+Footer: #b4115f -> #c9186c
+ 
+Logo 1: #b61261
+Logo 2: #199358
+ 
+Sidebar menu: #e5e3e0
+Sidebar search BG: #f2f4f6
+Sidebar bg: #fcfcfc
+Sidebar border: #777777
+Sidebar sections devider: #adadad
+ 
+Longitude top: #56ab80
+Longitude bottom: #4d926f
+
+Latitude top: #7aa0d0
+Latitude bottom: #4d5d91
+
+Table head bg: #d6d0c0
+Table head underline: #b5b5b5
+Table column separator: #a29a84
+
+
+Scrollbars may be standard browser scrollbars
