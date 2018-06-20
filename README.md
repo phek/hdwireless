@@ -15,6 +15,6 @@ I chose to not use any templating framework such as Bootstrap. The application i
 
 I did not implement any fancy login system or variable state syncing since this was not specified in the instructions. In a real life application the state should be handled with for example Redux (ngrx/store).
 
-All API calls are injected with the logged in authentication token in the headers. This is done via [jtw.injector.ts](https://github.com/phek/hdwireless/blob/master/src/app/helpers/jwt.interceptor.ts).
+All API calls are injected with the logged in authentication token in the headers. This is done via [jwt.injector.ts](https://github.com/phek/hdwireless/blob/master/src/app/helpers/jwt.interceptor.ts).
 
 I designed the application with customization of data and design in mind. It is therefore possible to change things such as sizes, menu items, colors and api through config files.
